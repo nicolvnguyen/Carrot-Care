@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+    <main> 
+
+        <button 
+          onclick="document.getElementById('profile').style.display='block'"
+          class="round-btn">
+          Profile
+        </button>
+
+        <div class="clock-container">
+            <div class='clock'>
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="mins">00</span>
+            </div>
+        </div>
+      
+        <div id="profile" class="modal" style="display: none;">
+          <div class="modal-content">
+        
+            <header class="modal-header">
+                <span 
+                    onclick="document.getElementById('profile').style.display='none'"
+                    class="close-btn">&times;
+                </span>
+                <h2>Profile</h2>
+            </header>
+        
+            <div class="profile-content">
+      
+              <form id="name-input" onsubmit="return false;">
+                <input type="text" id="bunny-name" placeholder="Bunny"/>
+                <input type="submit" value="Save" class="submit-btn" onclick="save_name();"/>
+              </form>
+      
+            </div>
+          </div>
+        </div>
+
+      </main>
+      
+      <script>
+        function save_name() {
+          var input = document.getElementById("bunny-name").value;
+        //   alert(input);
+        }
+
+        let hrs = document.getElementById("hrs")
+        let mins = document.getElementById("mins")
+
+        setInterval(()=> {
+            let currentTime = new Date();
+            var hours = currentTime.getHours();
+            if (hours > 12) {
+                hours -= 12;
+            } else if (hours === 0) {
+                hours = 12;}
+            hrs.innerHTML = hours;
+            mins.innerHTML = (currentTime.getMinutes()<10?"0":"") + currentTime.getMinutes();
+        }, 1000)
+
+      </script>
+
+    </body>
+</html>
