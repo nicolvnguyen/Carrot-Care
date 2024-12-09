@@ -1,10 +1,108 @@
+h1 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;;
+    font-size: 60px;
+    color: rgb(0, 123, 255);
+    padding: 30px 0px 0px 0px;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.column {
+    float: left;
+    width: 25%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#couch {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#bunny {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#cup {
+    left: 20px;
+    top: 40px;
+    height: 360px;
+    width: 100px;
+    background: blue;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #000000;
+}
+
+#liquid {
+    transition: height 1s;
+    left: 0px;
+    bottom: 0px;
+    height: 360px;
+    width: 100px;
+    background: white;
+}
+
+button, button:visited {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;;
+    font-size: 100%;
+    width: 50%;
+    height: 100%;
+    background-color: #0084ff;
+    color: rgb(0, 0, 0);
+    border: 2px solid #000000;
+    margin: 20px;
+}
+
+button:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+button:active {
+    background-color: rgb(0, 4, 255);
+}
+
+
+
+
+
+
+
+
+
+
+
 .round-btn {
+    height: 16vh;
+    width: 16vh;
     aspect-ratio: 1;
     border-radius: 50%;
     display: grid;
     place-items: center;
     padding: 0 2em;
     background-color: pink;
+}
+
+.round-btn:hover {
+    cursor: pointer;
 }
 
 .modal {
@@ -29,14 +127,42 @@
     width: 80%; 
 }
 
+#profile-text:hover {
+    cursor: default;
+}
+
+.profile-content {
+    align-items: center;
+    height: 60%;
+    width: 80%;
+}
+
+#name-input, text, strong {
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    padding: 2%;
+    font-size: 2vw;
+}
+
+.modal-content {
+    align-items: center;
+}
+
 .submit-btn {
-    border-radius: 50px;
+    border-radius: 50%;
+    height: 8vh;
+    width: 8vw;
     background: #c8b9ff;
     color: #fff;
     border: 1px solid #eee;
     border-radius: 20px;
     box-shadow: 5px 5px 5px #eee;
     text-shadow: none;
+}
+
+#bunny-name {
+    font-size: 4vh;
 }
 
 .submit-btn:hover {
@@ -46,6 +172,7 @@
     border-radius: 20px;
     box-shadow: 5px 5px 5px #eee;
     text-shadow: none;
+    cursor: pointer;
 }
 
 .close-btn {

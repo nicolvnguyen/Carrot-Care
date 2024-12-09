@@ -2,6 +2,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
+        <script src="drink.js"></script> 
+        <title>Carrot Care: Drink</title>
     </head>
     <body>
 
@@ -9,7 +11,7 @@
 
         <button 
           onclick="document.getElementById('profile').style.display='block'"
-          class="round-btn">
+          class="round-btn" id="profile-btn">
           Profile
         </button>
 
@@ -29,12 +31,14 @@
                     onclick="document.getElementById('profile').style.display='none'"
                     class="close-btn">&times;
                 </span>
-                <h2>Profile</h2>
+                <h2 id="profile-text">Profile</h2>
             </header>
         
             <div class="profile-content">
       
               <form id="name-input" onsubmit="return false;">
+                <strong id="name-text">Name your bunny!</strong><br>
+                <text>You can always update this later.</text><br><br>
                 <input type="text" id="bunny-name" placeholder="Bunny"/>
                 <input type="submit" value="Save" class="submit-btn" onclick="save_name();"/>
               </form>
@@ -43,12 +47,32 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="column">
+              <img id="couch" src="https://images.thdstatic.com/productImages/d64eadd7-aabe-4743-8051-dc62babaefae/svn/pink-honey-joy-kids-chairs-topb000685-64_600.jpg" alt="couch">
+          </div>
+          <div class="column">
+              <img id="bunny" src="https://t4.ftcdn.net/jpg/05/71/77/01/360_F_571770110_Ma0yElFc0Tpn1nWKOolJa3nvx0VIIG0F.jpg" alt="bunny">
+          </div>
+          <div class="column">
+              <h2>Cups Drank: <a id="clicks">0</a></h2>
+              <div id="cup">
+                  <div id="liquid"></div>
+              </div>
+          </div>
+          <div class="column">
+              <button onclick="fill()" type="button">Fill!</button>
+              <button onclick="pourWater()" type="button">Pour Water!</button>
+              <button onclick="drinkWater()" type="button">Drink Water!</button>
+          </div>
+      </div>
+
       </main>
       
       <script>
         function save_name() {
           var input = document.getElementById("bunny-name").value;
-        //   alert(input);
+          alert("Name saved! The bunny is now named: " + input);
         }
 
         let hrs = document.getElementById("hrs")
