@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link type="text/css" rel="stylesheet" href="drink.css">
+    <script src="drink.js"></script> 
+    <title>Carrot Care: Sleep</title>
+</head>
+
+<body>
+    <h1>8:12PM</h1>
+    <div class="row">
+        <div class="column">
+            <img id="couch" src="https://static.vecteezy.com/system/resources/previews/047/920/640/non_2x/modern-pink-bed-isolated-on-a-transparent-background-free-png.png" alt="bed">
+        </div>
+        <div class="column">
+            <img id="bunny" src="https://t4.ftcdn.net/jpg/05/71/77/01/360_F_571770110_Ma0yElFc0Tpn1nWKOolJa3nvx0VIIG0F.jpg" alt="bunny">
+        </div>
+        <div class="column">
+            <output for="asleep wokeup">Hours: 0, Minutes: 0</output>
+        </div>
+        <div class="column">
+            <p>Please input times using the same format as the example below:</p>
+            <p>0:00 or 00:00</p>
+            <form>
+                <label for="asleep">Time Fell Asleep:</label>
+                <input type="text" id="asleep" name="asleep"><br>
+                <input type="radio" name="one" value="AM">
+                <label for="am">AM</label>
+                <input type="radio" name="one" value="PM">
+                <label for="pm">PM</label>
+            </form>
+            <form>
+                <label for="wokeup">Time Woke Up:</label>
+                <input type="text" id="wokeup" name="wokeup"><br>
+                <input type="radio" name="two" value="AM">
+                <label for="am">AM</label>
+                <input type="radio" name="two" value="AM">
+                <label for="pm">PM</label>
+            </form>
+            <button onclick="calculateSleep()">Calculate Time Slept!</button>
+        </div>
+    </div>
+    <button onclick="location.href = 'drink.html';" type="button">Drink Some Water!</button>
+</body>
+</html>
