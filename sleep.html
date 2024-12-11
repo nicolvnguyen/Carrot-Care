@@ -54,17 +54,22 @@
         
             <div class="profile-content">
       
-              <form id="name-input" onsubmit="return false;">
-                <strong id="name-text">Name your bunny!</strong><br>
-                <text>You can always update this later.</text><br><br>
-                <input type="text" id="bunny-name" placeholder="Bunny"/>
-                <input type="submit" value="Save" class="submit-btn" onclick="save_name();"/>
-              </form>
+                <form id="name-input" onsubmit="return false;">
+                    <strong id="name-text">Name your bunny!</strong><br>
+                    <text>You can always update this later.</text><br><br>
+                    <input type="text" id="bunny-input" placeholder="New Name"/>
+                    <input type="submit" value="Save" class="submit-btn" onclick="save_name();"/>
+                </form>
+                <div class="bun-name">
+                    <p>Bunny Name:</p>
+                    <p id="bunny-name">Bunny</p>
+                </div>
       
             </div>
           </div>
         </div>
 
+    <!-- <h1>8:12PM</h1> -->
     <div class="row">
         <div class="column">
             <img id="couch" src="https://static.vecteezy.com/system/resources/previews/047/920/640/non_2x/modern-pink-bed-isolated-on-a-transparent-background-free-png.png" alt="bed">
@@ -98,11 +103,12 @@
         </div>
     </div>
 
-    <script>
-      let hrs = document.getElementById("hrs")
-      let mins = document.getElementById("mins")
-      
-      setInterval(()=> {
+</main>
+<script>
+    let hrs = document.getElementById("hrs")
+    let mins = document.getElementById("mins")
+
+    setInterval(()=> {
         let currentTime = new Date();
         var hours = currentTime.getHours();
         if (hours > 12) {
@@ -112,10 +118,8 @@
         hrs.innerHTML = hours;
         mins.innerHTML = (currentTime.getMinutes()<10?"0":"") + currentTime.getMinutes();
     }, 1000)
-    </script>
 
-</main>
-
+  </script>
 </body>
 
 </html>

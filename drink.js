@@ -74,85 +74,102 @@ function pourWater() {
 }
 
 function calculateSleep() {
-  var start = document.getElementById('asleep').value;
-  let[hoursStart, minutesStart] = start.split(':');
-  hoursStart = parseInt(hoursStart);
-  minutesStart = parseInt(minutesStart);
+    var start = document.getElementById('asleep').value;
+    let[hoursStart, minutesStart] = start.split(':');
+    hoursStart = parseInt(hoursStart);
+    minutesStart = parseInt(minutesStart);
+  
+    var finish = document.getElementById('wokeup').value;
+    let[hoursFinish, minutesFinish] = finish.split(':');
+    hoursFinish = parseInt(hoursFinish);
+    minutesFinish = parseInt(minutesFinish);
+  
+    if (!start) {
+        document.querySelector("output").value = 'Please input a time for when you fell asleep!';
+    }
+  
+    else if (!finish) {
+        document.querySelector("output").value = 'Please input a time for when you woke up!';
+    }
+  
+    else if (!Number.isInteger(hoursStart) || hoursStart > 12 || hoursStart < 1 || !Number.isInteger(minutesStart) || minutesStart > 59 || minutesStart < 0) {
+        document.querySelector("output").value = 'Invalid time for when you fell asleep!';
+    }
+  
+    else if (!Number.isInteger(hoursFinish) || hoursFinish > 12 || hoursFinish < 1 || !Number.isInteger(minutesFinish) || minutesFinish > 59 || minutesFinish < 0) {
+        document.querySelector("output").value = 'Invalid time for when you woke up!';
+    }
+  
+    else if (!document.getElementsByName('one')[0].checked && !document.getElementsByName('one')[1].checked) {
+        document.querySelector("output").value = 'Please select AM or PM for when you fell asleep!';
+    }
+  
+    else if (!document.getElementsByName('two')[0].checked && !document.getElementsByName('two')[1].checked) {
+        document.querySelector("output").value = 'Please select AM or PM for when you woke up!';
+    }
+  
+    else {
+        if (hoursStart == 12) {
+            hoursStart = 0;
+        }
+        if (document.getElementsByName('one')[1].checked) {
+            hoursStart += 12;
+        }
+        minutesStart += hoursStart * 60;
+        
+        if (hoursFinish == 12) {
+            hoursFinish = 0;
+        }
+        if (document.getElementsByName('two')[1].checked) {
+            hoursFinish+= 12;
+        }
+        minutesFinish += hoursFinish * 60;
+  
+        var total = 0;
+  
+        if (minutesStart > minutesFinish) {
+            total = 1440 - minutesStart + minutesFinish;
+        }
+  
+        else {
+            total = minutesFinish - minutesStart;
+        }
+  
+        var totalHours = Math.floor(total / 60);
+        var totalMinutes = total % 60;
+  
+        document.querySelector("output").value = 'Hours: ' + totalHours + ', Minutes: ' + totalMinutes;
+    }
+  };
+  
+  const storedName = localStorage.getItem('nameInput');
+  const bunnyInput = document.getElementById('bunny-input');
+  const bunnyName = document.getElementById('bunny-name');
+  
+  function save_name() {
+    var input = document.getElementById("bunny-input").value;
+    localStorage.setItem('nameInput', input)
+    const bunnyName = document.getElementById('bunny-name');
 
-  var finish = document.getElementById('wokeup').value;
-  let[hoursFinish, minutesFinish] = finish.split(':');
-  hoursFinish = parseInt(hoursFinish);
-  minutesFinish = parseInt(minutesFinish);
-
-  if (!start) {
-      document.querySelector("output").value = 'Please input a time for when you fell asleep!';
+    bunnyName.innerHTML = input;
+    // alert("Name saved! The bunny is now named: " + input);
+  }
+  
+  const URL = "https://quoteslate.vercel.app/api/quotes/random?tags=wisdom&minLength=50&maxLength=150"
+  async function makeAPICall() {
+    const result = await fetch(URL);
+    result.json().then(data => {
+      const quote = data.quote;
+      console.log(quote)
+      document.getElementById("quote").innerHTML = quote;
+    })
   }
 
-  else if (!finish) {
-      document.querySelector("output").value = 'Please input a time for when you woke up!';
-  }
-
-  else if (!Number.isInteger(hoursStart) || hoursStart > 12 || hoursStart < 1 || !Number.isInteger(minutesStart) || minutesStart > 59 || minutesStart < 0) {
-      document.querySelector("output").value = 'Invalid time for when you fell asleep!';
-  }
-
-  else if (!Number.isInteger(hoursFinish) || hoursFinish > 12 || hoursFinish < 1 || !Number.isInteger(minutesFinish) || minutesFinish > 59 || minutesFinish < 0) {
-      document.querySelector("output").value = 'Invalid time for when you woke up!';
-  }
-
-  else if (!document.getElementsByName('one')[0].checked && !document.getElementsByName('one')[1].checked) {
-      document.querySelector("output").value = 'Please select AM or PM for when you fell asleep!';
-  }
-
-  else if (!document.getElementsByName('two')[0].checked && !document.getElementsByName('two')[1].checked) {
-      document.querySelector("output").value = 'Please select AM or PM for when you woke up!';
-  }
-
-  else {
-      if (hoursStart == 12) {
-          hoursStart = 0;
-      }
-      if (document.getElementsByName('one')[1].checked) {
-          hoursStart += 12;
-      }
-      minutesStart += hoursStart * 60;
-      
-      if (hoursFinish == 12) {
-          hoursFinish = 0;
-      }
-      if (document.getElementsByName('two')[1].checked) {
-          hoursFinish+= 12;
-      }
-      minutesFinish += hoursFinish * 60;
-
-      var total = 0;
-
-      if (minutesStart > minutesFinish) {
-          total = 1440 - minutesStart + minutesFinish;
-      }
-
-      else {
-          total = minutesFinish - minutesStart;
-      }
-
-      var totalHours = Math.floor(total / 60);
-      var totalMinutes = total % 60;
-
-      document.querySelector("output").value = 'Hours: ' + totalHours + ', Minutes: ' + totalMinutes;
-  }
-};
-
-function save_name() {
-  var input = document.getElementById("bunny-name").value;
-  alert("Name saved! The bunny is now named: " + input);
-}
-
-const URL = "https://quoteslate.vercel.app/api/quotes/random?tags=wisdom&minLength=50&maxLength=150"
-async function makeAPICall() {
-  const result = await fetch(URL);
-  result.json().then(data => {
-    const quote = data.quote;
-    console.log(quote)
-    document.getElementById("quote").innerHTML = quote;
-  })
-}
+    document.addEventListener("DOMContentLoaded", (event) => {
+    const storedName = localStorage.getItem('nameInput');
+    const bunnyName = document.getElementById('bunny-name');
+    if (storedName && bunnyName) {
+      bunnyName.textContent = storedName;
+    }
+    console.log("page loaded")  
+});
