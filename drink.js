@@ -141,3 +141,18 @@ function calculateSleep() {
       document.querySelector("output").value = 'Hours: ' + totalHours + ', Minutes: ' + totalMinutes;
   }
 };
+
+function save_name() {
+  var input = document.getElementById("bunny-name").value;
+  alert("Name saved! The bunny is now named: " + input);
+}
+
+const URL = "https://quoteslate.vercel.app/api/quotes/random?tags=wisdom&minLength=50&maxLength=150"
+async function makeAPICall() {
+  const result = await fetch(URL);
+  result.json().then(data => {
+    const quote = data.quote;
+    console.log(quote)
+    document.getElementById("quote").innerHTML = quote;
+  })
+}

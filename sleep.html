@@ -65,7 +65,6 @@
           </div>
         </div>
 
-    <!-- <h1>8:12PM</h1> -->
     <div class="row">
         <div class="column">
             <img id="couch" src="https://static.vecteezy.com/system/resources/previews/047/920/640/non_2x/modern-pink-bed-isolated-on-a-transparent-background-free-png.png" alt="bed">
@@ -98,6 +97,22 @@
             <button onclick="calculateSleep()">Calculate Time Slept!</button>
         </div>
     </div>
+
+    <script>
+      let hrs = document.getElementById("hrs")
+      let mins = document.getElementById("mins")
+      
+      setInterval(()=> {
+        let currentTime = new Date();
+        var hours = currentTime.getHours();
+        if (hours > 12) {
+            hours -= 12;
+        } else if (hours === 0) {
+            hours = 12;}
+        hrs.innerHTML = hours;
+        mins.innerHTML = (currentTime.getMinutes()<10?"0":"") + currentTime.getMinutes();
+    }, 1000)
+    </script>
 
 </main>
 
