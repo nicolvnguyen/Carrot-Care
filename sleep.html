@@ -2,13 +2,70 @@
 <html lang="en">
 
 <head>
-    <link type="text/css" rel="stylesheet" href="drink.css">
+    <link type="text/css" rel="stylesheet" href="styles.css">
     <script src="drink.js"></script> 
     <title>Carrot Care: Sleep</title>
 </head>
 
 <body>
-    <h1>8:12PM</h1>
+
+<main>
+
+    <nav class="navbar"> 
+        <ul class="nav-list">
+          <li class="nav-list">
+            <button 
+              onclick="document.getElementById('profile').style.display='block'"
+              class="round-btn" id="profile-btn">
+              Profile
+            </button>
+          </li>
+
+          <li class="nav-list">
+            <div class="clock-container">
+                <div class='clock'>
+                    <span id="hrs">00</span>
+                    <span>:</span>
+                    <span id="mins">00</span>
+                </div>
+            </div>
+          </li>
+
+          <li class="nav-list">
+            
+            <a href="./index.html">
+              <button class="round-btn" id="sleep-btn">Drink</button>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+
+        <div id="profile" class="modal" style="display: none;">
+          <div class="modal-content">
+        
+            <header class="modal-header">
+                <span 
+                    onclick="document.getElementById('profile').style.display='none'"
+                    class="close-btn">&times;
+                </span>
+                <h2 id="profile-text">Profile</h2>
+            </header>
+        
+            <div class="profile-content">
+      
+              <form id="name-input" onsubmit="return false;">
+                <strong id="name-text">Name your bunny!</strong><br>
+                <text>You can always update this later.</text><br><br>
+                <input type="text" id="bunny-name" placeholder="Bunny"/>
+                <input type="submit" value="Save" class="submit-btn" onclick="save_name();"/>
+              </form>
+      
+            </div>
+          </div>
+        </div>
+
+    <!-- <h1>8:12PM</h1> -->
     <div class="row">
         <div class="column">
             <img id="couch" src="https://static.vecteezy.com/system/resources/previews/047/920/640/non_2x/modern-pink-bed-isolated-on-a-transparent-background-free-png.png" alt="bed">
@@ -41,6 +98,9 @@
             <button onclick="calculateSleep()">Calculate Time Slept!</button>
         </div>
     </div>
-    <button onclick="location.href = 'drink.html';" type="button">Drink Some Water!</button>
+
+</main>
+
 </body>
+
 </html>
