@@ -1,4 +1,114 @@
+/* Set font for body text */
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    background-color: lightblue;
+}
+
+/* Set style for header 1 */
+h1 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 60px;
+    color: rgb(0, 123, 255);
+    padding: 30px 0px 0px 0px;
+    text-align: center;
+}
+
+/* Set style for header 2 */
+h2 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+/* Create column */
+.column {
+    float: left;
+    width: 25%;
+}
+
+/* Create row */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Sizing for couch image */
+#couch {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* Sizing for bunny image */
+#bunny {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* Sizing and color for cup */
+#cup {
+    left: 20px;
+    top: 40px;
+    height: 360px;
+    width: 100px;
+    background: #a7bbf5;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #000000;
+}
+
+/* Transition and color for liquid */
+#liquid {
+    transition: height 1s;
+    left: 0px;
+    bottom: 0px;
+    height: 360px;
+    width: 100px;
+    background: white;
+}
+
+/* Button style */
+button, button:visited {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;;
+    font-size: 100%;
+    width: 50%;
+    height: 100%;
+    background-color: #99daff;
+    color: rgb(0, 0, 0);
+    border: 2px solid #000000;
+    margin: 20px;
+}
+
+/* Change color of button when hovering */
+button:hover {
+    background-color: #66a8ce;
+}
+
+/* Layout for nav list */
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+/* Layout for sleep button */
+#sleep-btn {
+    position: fixed;
+    margin-right: 0px;
+    right: 16px;
+}
+
+/* Style for round button */
 .round-btn {
+    height: 16vh;
+    width: 16vh;
     aspect-ratio: 1;
     border-radius: 50%;
     display: grid;
@@ -7,6 +117,18 @@
     background-color: pink;
 }
 
+/* Text for round button */
+.round-btn.text {
+    font-size: 1vw;
+}
+
+/* Change color of round button when hovering */
+.round-btn:hover {
+    cursor: pointer;
+    background-color: rgb(245, 162, 176);
+}
+
+/* Modal style */
 .modal {
     display: none; 
     position: fixed; 
@@ -20,17 +142,54 @@
     background-color: rgba(0,0,0,0.4); 
 }
 
+/* Layout of popup */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; 
     padding: 20px;
-    border: 1px solid #888;
-    height: 40%;
-    width: 80%; 
+    /* border: 1px solid #888; */
+    height: 56vh;
+    width: 60vw; 
 }
 
+/* Layout for  */
+#profile-text{
+    font-size: 3vw;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Reverts cursor to default */
+#profile-text:hover {
+    cursor: default;
+}
+
+/* Layout for profile content */
+.profile-content {
+    align-items: center;
+    height: 60%;
+    width: 80%;
+}
+
+/* Layout for the name input */
+#name-input{
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    padding: 2%;
+    font-size: 2vw;
+}
+
+/* Center the popup */
+.modal-content {
+    align-items: center;
+}
+
+/* Style for submit button */
 .submit-btn {
-    border-radius: 50px;
+    border-radius: 50%;
+    height: 8vh;
+    width: 8vw;
     background: #c8b9ff;
     color: #fff;
     border: 1px solid #eee;
@@ -39,6 +198,12 @@
     text-shadow: none;
 }
 
+/* Text size for bunny name */
+#bunny-name {
+    font-size: 4vh;
+}
+
+/* Change color of submit button when hovering */
 .submit-btn:hover {
     background: #6501bc;
     color: #fff;
@@ -46,8 +211,10 @@
     border-radius: 20px;
     box-shadow: 5px 5px 5px #eee;
     text-shadow: none;
+    cursor: pointer;
 }
 
+/* Layout for close button */
 .close-btn {
     color: #aaa;
     float: right;
@@ -55,6 +222,7 @@
     font-weight: bold;
 }
 
+/* Layout for when hovering over close button */
 .close-btn:hover,
 .close-btn:focus {
     color: black;
@@ -62,9 +230,10 @@
     cursor: pointer;
 }
 
+/* Style for box around clock */
 .clock-container{
-    width: 400px;
-    height: 200px;
+    width: 14vw;
+    height: 12vh;
     position: absolute;
     top: 5%;
     left: 50%;
@@ -72,6 +241,7 @@
     background-color: lightpink;
 }
 
+/* Style for the clock istelf */
 .clock{
     width: 100%;
     height: 100%;
@@ -82,10 +252,43 @@
     justify-content: center;
 }
 
+/* More styling for clock */
 .clock span{
-    font-size: 42px;
+    font-size: 3vw;
     width: 60px;
     display: inline-block;
     text-align: center;
     position: relative;
+}
+
+/* Style for quotes */
+.quote-container {
+    width: 42vw;
+    height: 16vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Bunny name style */
+.bun-name {
+    width: 26vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* margin: 20px; */
+}
+
+  @media only screen and (max-width: 768px){
+    /* body {
+      background-color: lightblue;
+    } */
+    #couch {
+        display: none;
+    }
+  }
+
+/* changes cursor to default when hovering over text in the profile modal */
+.prof-text:hover {
+    cursor: default;
 }

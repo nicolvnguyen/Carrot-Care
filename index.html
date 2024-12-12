@@ -1,26 +1,48 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
+        <script src="drink.js"></script> 
+        <title>Carrot Care: Drink</title>
     </head>
     <body>
 
     <main> 
 
-        <button 
-          onclick="document.getElementById('profile').style.display='block'"
-          class="round-btn">
-          Profile
-        </button>
+      <!-- Create nav bar with profile button -->
+      <nav class="navbar"> 
+        <ul class="nav-list">
+          <li class="nav-list">
+            <button 
+              onclick="document.getElementById('profile').style.display='block'"
+              class="round-btn" id="profile-btn">
+              Profile
+            </button>
+          </li>
 
-        <div class="clock-container">
-            <div class='clock'>
-                <span id="hrs">00</span>
-                <span>:</span>
-                <span id="mins">00</span>
+          <!-- Add time to nav list -->
+          <li class="nav-list">
+            <div class="clock-container">
+                <div class='clock'>
+                    <span id="hrs">00</span>
+                    <span>:</span>
+                    <span id="mins">00</span>
+                </div>
             </div>
-        </div>
-      
+          </li>
+
+          <li class="nav-list">
+            
+            <!-- Button to go to sleep page -->
+            <a href="./sleep.html">
+              <button class="round-btn" id="sleep-btn">Sleep</button>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+        <!-- Create popup -->
         <div id="profile" class="modal" style="display: none;">
           <div class="modal-content">
         
@@ -29,27 +51,64 @@
                     onclick="document.getElementById('profile').style.display='none'"
                     class="close-btn">&times;
                 </span>
-                <h2>Profile</h2>
+                <h2 id="profile-text">Profile</h2>
             </header>
         
             <div class="profile-content">
-      
+              <!-- Input for bunny's name -->
               <form id="name-input" onsubmit="return false;">
-                <input type="text" id="bunny-name" placeholder="Bunny"/>
+                <strong class="prof-text" id="name-text">Name your bunny!</strong><br>
+                <text class="prof-text">You can always update this later.</text><br><br>
+                <input type="text" id="bunny-input" placeholder="New Name"/>
                 <input type="submit" value="Save" class="submit-btn" onclick="save_name();"/>
               </form>
-      
+              <div class="bun-name">
+                <p>Bunny Name:</p>
+                <p id="bunny-name">Bunny</p>
+              </div>
             </div>
           </div>
         </div>
+        
+        <!-- Format layout into four columns -->
+        <div class="row">
+          <!-- Couch image -->
+          <div class="column">
+              <img id="couch" src="https://images.thdstatic.com/productImages/d64eadd7-aabe-4743-8051-dc62babaefae/svn/pink-honey-joy-kids-chairs-topb000685-64_600.jpg" alt="couch">
+          </div>
+          <!-- Bunny image -->
+          <div class="column">
+              <img id="bunny" src="https://t4.ftcdn.net/jpg/05/71/77/01/360_F_571770110_Ma0yElFc0Tpn1nWKOolJa3nvx0VIIG0F.jpg" alt="bunny">
+          </div>
+          <!-- Cup image -->
+          <div class="column">
+              <h2>Cups Drank: <a id="clicks">0</a></h2>
+              <div id="cup">
+                  <div id="liquid"></div>
+              </div>
+          </div>
+          <!-- Functionality for cup -->
+          <div class="column">
+              <button onclick="fill()" type="button">Fill!</button>
+              <button onclick="pourWater()" type="button">Pour Water!</button>
+              <button onclick="drinkWater()" type="button">Drink Water!</button>
+          </div>
+      </div>
+
+      <!-- Quotes button -->
+      <div class="quote-container">
+        <button class="round-btn" id="quote-btn" onclick="makeAPICall()">
+          Quote
+        </button>
+
+      
+        <p id="quote"></p>
+      </div>
 
       </main>
       
+      <!-- Functionality for time -->
       <script>
-        function save_name() {
-          var input = document.getElementById("bunny-name").value;
-        //   alert(input);
-        }
 
         let hrs = document.getElementById("hrs")
         let mins = document.getElementById("mins")
