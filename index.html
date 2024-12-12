@@ -9,6 +9,7 @@
 
     <main> 
 
+      <!-- Create nav bar with profile button -->
       <nav class="navbar"> 
         <ul class="nav-list">
           <li class="nav-list">
@@ -19,6 +20,7 @@
             </button>
           </li>
 
+          <!-- Add time to nav list -->
           <li class="nav-list">
             <div class="clock-container">
                 <div class='clock'>
@@ -31,6 +33,7 @@
 
           <li class="nav-list">
             
+            <!-- Button to go to sleep page -->
             <a href="./sleep.html">
               <button class="round-btn" id="sleep-btn">Sleep</button>
             </a>
@@ -38,7 +41,7 @@
         </ul>
       </nav>
 
-
+        <!-- Create popup -->
         <div id="profile" class="modal" style="display: none;">
           <div class="modal-content">
         
@@ -51,7 +54,7 @@
             </header>
         
             <div class="profile-content">
-      
+              <!-- Input for bunny's name -->
               <form id="name-input" onsubmit="return false;">
                 <strong id="name-text">Name your bunny!</strong><br>
                 <text>You can always update this later.</text><br><br>
@@ -66,20 +69,24 @@
           </div>
         </div>
         
-
+        <!-- Format layout into four columns -->
         <div class="row">
+          <!-- Couch image -->
           <div class="column">
               <img id="couch" src="https://images.thdstatic.com/productImages/d64eadd7-aabe-4743-8051-dc62babaefae/svn/pink-honey-joy-kids-chairs-topb000685-64_600.jpg" alt="couch">
           </div>
+          <!-- Bunny image -->
           <div class="column">
               <img id="bunny" src="https://t4.ftcdn.net/jpg/05/71/77/01/360_F_571770110_Ma0yElFc0Tpn1nWKOolJa3nvx0VIIG0F.jpg" alt="bunny">
           </div>
+          <!-- Cup image -->
           <div class="column">
               <h2>Cups Drank: <a id="clicks">0</a></h2>
               <div id="cup">
                   <div id="liquid"></div>
               </div>
           </div>
+          <!-- Functionality for cup -->
           <div class="column">
               <button onclick="fill()" type="button">Fill!</button>
               <button onclick="pourWater()" type="button">Pour Water!</button>
@@ -87,6 +94,7 @@
           </div>
       </div>
 
+      <!-- Quotes button -->
       <div class="quote-container">
         <button class="round-btn" id="quote-btn" onclick="makeAPICall()">
           Quote
@@ -98,6 +106,7 @@
 
       </main>
       
+      <!-- Functionality for time -->
       <script>
 
         let hrs = document.getElementById("hrs")
