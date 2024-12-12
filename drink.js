@@ -16,10 +16,10 @@ function drinkWater() {
     document.getElementById("clicks").innerHTML = clicks;
     // Change image from regular bunny to bunny drinking water
     document.getElementById("bunny").src =
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRanP4MX90MPFUjbXwac_6wOYX3I3RsHU51xg&s";
+      "./images/Drinking_Bunny.png";
     setTimeout(function () {
       document.getElementById("bunny").src =
-        "https://t4.ftcdn.net/jpg/05/71/77/01/360_F_571770110_Ma0yElFc0Tpn1nWKOolJa3nvx0VIIG0F.jpg";
+        "./images/Regular_Bunny.png";
     }, 500);
   }
   // Change the height of the cup to be lower as the bunny drinks
@@ -178,7 +178,7 @@ function calculateSleep() {
   }
   
   // Generate quotes using an API
-  const URL = "https://quoteslate.vercel.app/api/quotes/random?tags=wisdom&minLength=50&maxLength=150"
+  const URL = "https://quoteslate.vercel.app/api/quotes/random?tags=happiness&minLength=50&maxLength=150"
   async function makeAPICall() {
     const result = await fetch(URL);
     result.json().then(data => {
