@@ -6,14 +6,30 @@ function fill() {
 
 // Keep track of how many times user clicked drink button
 var clicks = 0;
+  // const storedDrank = localStorage.getItem("drank")
+  // if (storedDrank) {
+  //   document.getElementById("clicks").innerHTML = storedDrank;
+  // }
+  // else {
+  //   var clicks = 0;
+  // }
 
 // Drink water and deplete the glass
 function drinkWater() {
   var liq = document.getElementById("liquid");
   if (liq.style.height != "360px") {
     // Add to the click counter for how many cups the user drank
+    /////
+    const storedDrank = localStorage.getItem("drank")
+    if (storedDrank) {
+      clicks = Number(storedDrank);
+    }
+    /////
     clicks += 1;
+    // localStorage.clear();
+    // localStorage.removeItem("drank");
     document.getElementById("clicks").innerHTML = clicks;
+    localStorage.setItem("drank", clicks)
     // Change image from regular bunny to bunny drinking water
     document.getElementById("bunny").src =
       "./images/Drinking_Bunny.png";
@@ -194,6 +210,11 @@ function calculateSleep() {
     const bunnyName = document.getElementById('bunny-name');
     if (storedName && bunnyName) {
       bunnyName.textContent = storedName;
+    }
+    const storedDrank = localStorage.getItem("drank")
+    if (storedDrank) {
+      document.getElementById("clicks").innerHTML = storedDrank;
+      // clicks = storedDrank;
     }
     console.log("page loaded")  
 });
